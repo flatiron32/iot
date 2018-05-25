@@ -1,8 +1,8 @@
 all: 
-				g++ helloworld.cpp -o helloworld
+				g++ testsuite.cpp -o testsuite.o
 
 test:
-				./helloworld
+				./testsuite.o
 
 clean:
 				@-rm *.o
