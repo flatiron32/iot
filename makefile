@@ -4,7 +4,7 @@ all:
 check:
 				./cpplint.py *.cpp
 
-test: testsuite.o
+test: all
 				./testsuite.o
 
 clean:
