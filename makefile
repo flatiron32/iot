@@ -1,8 +1,11 @@
 all: 
 				g++ testsuite.cpp -o testsuite.o
 
-test:
+check:
+				./cpplint.py *.cpp
+
+test: testsuite.o
 				./testsuite.o
 
 clean:
-				@-rm *.o
+				-rm *.o
