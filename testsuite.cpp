@@ -6,12 +6,12 @@
 #include "./empty.h"
 
 using std::cout;
-int test() {
+int testEverything() {
   cout << "Run Test\n";
-  return 0;
+  return testEmpty();
 }
 
 int main() {
-  cout << "Hello World!\n";
-  return test();
+  cout << "Executing All Tests\n";
+  return testEverything();
 }

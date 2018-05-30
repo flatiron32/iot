@@ -1,8 +1,8 @@
 test: all
 				./testsuite.o
 
-all: 
-				g++ testsuite.cpp -o testsuite.o
+all: empty.o 
+				g++ testsuite.cpp empty.o -o testsuite.o
 
 check:
 				./cpplint.py *.cpp
