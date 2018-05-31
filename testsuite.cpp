@@ -7,7 +7,8 @@
 
 using std::cout;
 int testEverything() {
-  cout << "Run Test\n";
+  cout << "Run All Test\n";
+  cout << "\tRun Test for Empty\n";
   return testEmpty();
 }
 

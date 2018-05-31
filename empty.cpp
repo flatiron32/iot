@@ -4,6 +4,14 @@
 
 #include "./empty.h"
 
+void setup() {
+}
+
+void loop() {
+}
+
 int testEmpty() {
+  setup();
+  loop();
   return 0;
 }
