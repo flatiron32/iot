@@ -1,11 +1,12 @@
-test: all
-				./testsuite.o
+objects = testsuite.o empty.o
 
-all: empty.o 
-				g++ testsuite.cpp empty.o -o testsuite.o
+test: ${objects}
+				g++ -o testit ${objects}
+				./testit
 
 check:
 				./cpplint.py *.cpp
 
 clean:
 				-rm *.o
+				-rm testit
