@@ -11,7 +11,10 @@ void loop() {
 }
 
 int testEmpty() {
+  int assertionCount = 0;
   setup();
+  assertionCount++;
   loop();
-  return 0;
+  assertionCount++;
+  return assertionCount;
 }

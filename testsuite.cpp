@@ -7,12 +7,16 @@
 
 using std::cout;
 int testEverything() {
-  cout << "Run All Test\n";
+  int testCount = 0;
+  cout << "Executing All Tests\n";
   cout << "\tRun Test for Empty\n";
-  return testEmpty();
+  cout << "\t\t" << testEmpty() << " assertions passed\n";
+  testCount++;
+  cout << testCount << " tests executed\n";
+  return testCount;
 }
 
 int main() {
-  cout << "Executing All Tests\n";
-  return testEverything();
+  testEverything();
+  return 0;
 }
