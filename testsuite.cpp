@@ -3,8 +3,8 @@
  */
 
 #include <iostream>
-#include "empty/empty.h"
-#include "helloWorld/helloWorld.h"
+#include "empty/empty.hpp"
+#include "helloWorld/helloWorld.hpp"
 
 using std::cout;
 int testEverything() {

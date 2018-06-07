@@ -1,4 +1,4 @@
-headers = $(shell find . -name *.h)
+headers = $(shell find . -name *.hpp)
 sources = $(shell find . -name *.ino)
 objects = testsuite.o $(sources:%.ino=%.o)
 
@@ -9,7 +9,7 @@ test: ${objects}
 check:
 	./cpplint.py \
 		--extensions=ino,cpp \
-		--headers=h \
+		--headers=hpp \
 		*.cpp ${sources} ${headers}
 
 

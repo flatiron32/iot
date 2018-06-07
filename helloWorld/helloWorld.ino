@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2018 Jacob Tomaw
  */
-#include "helloWorld.h"
+#include "helloWorld.hpp"
 
 int testHelloWorld() {
   return 0;
