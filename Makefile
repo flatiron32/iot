@@ -1,6 +1,6 @@
 headers = $(shell find . -name *.hpp)
 sources = $(shell find . -name *.ino)
-objects = testsuite.o $(sources:%.ino=%.o)
+objects = testsuite.o serial.o $(sources:%.ino=%.o)
 
 .PHONY: clean check test lint
 
@@ -15,9 +15,8 @@ lint:
 		--headers=hpp \
 		*.cpp ${sources} ${headers}
 
-
 clean:
-	-rm *.o
+	-rm {,**/}*.o
 	-rm -rf bin
 
 %.o: %.ino
