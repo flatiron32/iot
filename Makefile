@@ -1,13 +1,16 @@
 headers = $(shell find . -name *.hpp)
 sources = $(shell find . -name *.ino)
 objects = testsuite.o serial.o $(sources:%.ino=%.o)
+tests = $(sources:%.ino=%Test)
 
 .PHONY: clean check test lint
 
 check: clean lint test
 
-test: bin/testit
-	./bin/testit
+test: tests
+	for test in ${tests}; do \
+		$$test; \
+	done
 
 lint:
 	./cpplint.py \
@@ -17,13 +20,12 @@ lint:
 
 clean:
 	-rm {,**/}*.o
-	-rm -rf bin
 
 %.o: %.ino
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -x c++ -c -o $@ $<
 
-bin:
-	mkdir bin
+%Test: %Test.o %.o serial.o
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $^
 
-bin/testit: bin ${objects}
-	g++ -o bin/testit ${objects}
+tests: ${tests}
+

@@ -3,6 +3,8 @@
  */
 #ifndef HELLOWORLD_HELLOWORLD_HPP_
 #define HELLOWORLD_HELLOWORLD_HPP_
+void setup();
+void loop();
 
 int testHelloWorld();
 

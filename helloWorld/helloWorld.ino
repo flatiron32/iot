@@ -6,12 +6,3 @@
 void setup() {
   Serial.begin(1500);
 }
-
-int testHelloWorld() {
-  setup();
-  if (Serial.began() == 1500) {
-    return 1;
-  } else {
-    return 0;
-  }
-}
