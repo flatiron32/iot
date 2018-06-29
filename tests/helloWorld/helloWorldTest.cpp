@@ -1,6 +1,10 @@
+#ifndef TESTING
+#define TESTING 1
+#endif
+
 #include <iostream>
-#include "../serial.hpp"
-#include "./helloWorld.hpp"
+#include "../../serial.hpp"
+#include "../../projects/helloWorld/helloWorld.hpp"
 
 using std::cout;
 int main() {

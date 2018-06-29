@@ -1,7 +1,7 @@
 headers = $(shell find . -name *.hpp)
-sources = $(shell find . -name *.ino)
+sources = $(shell find projects -name *.ino)
 objects = testsuite.o serial.o $(sources:%.ino=%.o)
-tests = $(sources:%.ino=%Test)
+tests = $(sources:projects/%.ino=tests/%Test)
 
 .PHONY: clean check test lint
 
@@ -19,12 +19,16 @@ lint:
 		*.cpp ${sources} ${headers}
 
 clean:
-	-rm {,**/}*.o
+	-rm $(shell find . -name *.o)
+	-rm $(tests)
 
 %.o: %.ino
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -x c++ -c -o $@ $<
 
-%Test: %Test.o %.o serial.o
+tests/%.o: tests/%.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -x c++ -c -o $@ $<
+
+tests/%Test: tests/%Test.o projects/%.o serial.o 
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $^
 
 tests: ${tests}
